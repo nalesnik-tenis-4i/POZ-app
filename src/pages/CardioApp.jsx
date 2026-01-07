@@ -4,8 +4,6 @@ import LipidCalculator from '../components/LipidCalculator';
 
 const CardioApp = () => {
   // Stan przechowujący wynik oceny ryzyka
-  // null = brak oceny (pokaż kreator)
-  // object = ocena zakończona (pokaż kalkulator lipidowy)
   const [patientRisk, setPatientRisk] = useState(null);
 
   return (
@@ -15,17 +13,18 @@ const CardioApp = () => {
         <p className="text-slate-500 mt-2">Standard ESC 2021/2026 • Region Polska (High Risk)</p>
       </header>
 
-      <main className="max-w-2xl mx-auto">
+      {/* ZMIANA 1: Rozszerzamy główny kontener do max-w-6xl (zamiast 2xl) */}
+      <main className="max-w-6xl mx-auto">
         {!patientRisk ? (
-          /* MODUŁ 1: OCENA RYZYKA */
+          /* MODUŁ 1: OCENA RYZYKA (Szeroki widok - Dashboard) */
           <RiskAssessmentWizard 
             onComplete={(riskData) => setPatientRisk(riskData)} 
           />
         ) : (
-          /* MODUŁ 2: DOBÓR STATYN */
-          <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500">
+          /* MODUŁ 2: DOBÓR STATYN (Wąski widok - Formularz) */
+          /* ZMIANA 2: Centrujemy ten widok, żeby nie był zbyt szeroki na dużym ekranie */
+          <div className="max-w-3xl mx-auto space-y-6 animate-in slide-in-from-bottom-4 duration-500">
             
-            {/* Karta informacyjna z wynikiem ryzyka (aby lekarz pamiętał skąd to się wzięło) */}
             <div className="bg-white p-4 rounded-xl shadow-sm border-l-4 border-indigo-500 flex justify-between items-center">
               <div>
                 <p className="text-xs text-gray-500 uppercase font-bold">Zidentyfikowane Ryzyko</p>
@@ -42,7 +41,7 @@ const CardioApp = () => {
               </button>
             </div>
 
-            {/* Właściwy kalkulator leków */}
+            {/* Przekazujemy forcedRisk, aby nadpisać logikę wewnętrzną */}
             <LipidCalculator 
               forcedRisk={patientRisk.category} 
             />

@@ -1,5 +1,5 @@
 // lipidUtils.js
-import { RISK_TARGETS, THERAPY_TIERS } from './lipidData';
+import { RISK_TARGETS, THERAPY_TIERS } from '../data/lipidData';
 
 export const calculateTreatment = (currentLdl, riskCategory) => {
   // Walidacja
@@ -34,3 +34,4 @@ export const calculateTreatment = (currentLdl, riskCategory) => {
     drugs: therapy?.drugs || []
   };
 };
+
