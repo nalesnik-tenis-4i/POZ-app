@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { RISK_TARGETS } from './lipidData';
-import { calculateTreatment } from './lipidUtils';
+import { RISK_TARGETS } from '../lipidData';
+import { calculateTreatment } from '../lipidUtils';
 
 const LipidCalculator = ({ forcedRisk = null }) => {
   const [ldl, setLdl] = useState('');

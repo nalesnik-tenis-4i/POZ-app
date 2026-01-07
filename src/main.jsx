@@ -1,10 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+// Importujemy Twój główny komponent z nowego folderu
+import CardioApp from './components/CardioApp'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <CardioApp />
   </StrictMode>,
 )

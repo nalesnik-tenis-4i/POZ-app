@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { DIRECT_RISK_FACTORS, getRiskCategory, RISK_LABELS } from './scoreData';
-import { calculateScorePol } from './scoreEngine'; 
+import { DIRECT_RISK_FACTORS, getRiskCategory, RISK_LABELS } from '../logic/scoreData';
+import { calculateScorePol } from '../logic/scoreEngine'; 
 
 const RiskAssessmentWizard = ({ onComplete }) => { // PROP onComplete
   const [step, setStep] = useState(1);
