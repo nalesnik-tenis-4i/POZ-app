@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import RiskAssessmentWizard from './RiskAssessmentWizard';
-import LipidCalculator from './LipidCalculator';
+import RiskAssessmentWizard from '../components/RiskAssessmentWizard';
+import LipidCalculator from '../components/LipidCalculator';
 
 const CardioApp = () => {
   // Stan przechowujący wynik oceny ryzyka
